@@ -16,6 +16,12 @@ public class main {
         blog.add(note);
         
         Comment c1 = new Comment("jan","Kolekcje sa trudne");
+        note2.add(c1);
+        Comment c2 = new Comment("ewa","nie nie nie");
+        note2.add(c2);
+        System.out.println(blog);
+        System.out.println("-------------");
+        System.out.println(blog.mostPopular());
         
     }
     

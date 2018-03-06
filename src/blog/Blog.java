@@ -11,8 +11,50 @@ public class Blog {
         this.title=title;
     }
     
-   public void add(Wpisy wpis)
+    public void add(Wpisy wpis)
    {
        notes.add(wpis);
    }
+    
+    public Wpisy mostPopular() {
+        
+        /*int max = 0;
+        Wpisy result = null;
+        for(Wpisy note : notes)
+        {
+            int count = note.numberOfComments();
+            if(count>max)
+            {
+                result = note;
+            }
+        }
+        
+        return result;
+        */
+        
+        if(notes.isEmpty()) return null;
+        Wpisy result = notes.get(0);
+        for(Wpisy note : notes)
+        {
+            int count = note.numberOfComments();
+            if(count>result.numberOfComments())
+            {
+                result = note;
+            }
+        }
+        
+        return result;
+}
+    
+    public List<Wpisy> mostPopulars() {
+        return null;
+    }
+    
+    public Comment lastComment() {
+        return null;
+    }
+    
+    public List<Comment> lastComments() {
+        return null;
+    }
 }

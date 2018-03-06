@@ -30,4 +30,7 @@ public class Wpisy {
         return sb.toString();
     }
     
+    public int numberOfComments() {
+        return comments.size();
+    }
 }
