@@ -1,6 +1,8 @@
 
 package blog;
 
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 import java.util.*;
 
 public class Blog {
@@ -51,7 +53,44 @@ public class Blog {
     }
     
     public Comment lastComment() {
-        return null;
+        
+        List<Comment> allComments = new ArrayList();
+        for(Wpisy note : notes)
+        {
+            allComments.addAll(note.getComments());
+        }
+        Comment result = allComments.get(0);
+        for (Comment comment : allComments)
+        {
+            LocalDate d1 = comment.getDate();
+            LocalDate d2 = result.getDate();
+            if(d1.isAfter(d2))
+            {
+                result = comment;
+            }
+        }
+        
+        /*
+        LocalDate now = LocalDate.now();
+        Comment result = null;
+        long min = Long.MAX_VALUE;
+        for(Wpisy note: notes)
+        {
+            for(Comment comment : note.getComments())
+            {
+                LocalDate date = comment.getData();
+                long x = now.until(date, ChronoUnit.MINUTES);
+                if(x<min)
+                {
+                    min = x;
+                    result = comment;
+                }
+            }
+        }
+        
+        return result;
+
+*/
     }
     
     public List<Comment> lastComments() {
